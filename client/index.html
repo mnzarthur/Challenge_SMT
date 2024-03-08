@@ -1,0 +1,45 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issues Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Issues Tracker</h1>
+  
+  <form id="issueForm">
+    <label for="id">ID:</label>
+    <input type="number" id="id" name="id">
+    
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <button type="button" onclick="createIssue()">Create Issue</button>
+    <button type="button" onclick="refreshTable()">Refresh Table</button>
+  </form>
+
+  <h2>Issues</h2>
+  <label for="filterId">Filter by ID:</label>
+  <input type="number" id="filterId" name="filterId">
+  <button type="button" onclick="refreshTable()">Apply Filter</button>
+  <table id="issueTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th> <!-- New column for delete button -->
+      </tr>
+    </thead>
+    <tbody id="issueTableBody"></tbody>
+  </table>
+
+  <script src="client.js"></script>
+</body>
+</html>
